@@ -9,12 +9,33 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProstagesController extends AbstractController
 {
     /**
-     * @Route("/prostages", name="prostages")
+     * @Route("/", name="prostages_accueil ")
      */
     public function index(): Response
     {
-        return $this->render('prostages/index.html.twig', [
-            'controller_name' => 'ProstagesController',
-        ]);
+        return $this->render('prostages/index.html.twig');
     }
+    /**
+     * @Route("/entreprises", name="prostages_entreprises ")
+     */
+    public function afficherEntreprises(): Response
+    {
+        return $this->render('prostages/affichageEntreprises.html.twig');
+    }
+    /**
+     * @Route("/formations", name="prostages_formations ")
+     */
+    public function afficherFormations(): Response
+    {
+        return $this->render('prostages/affichageFormations.html.twig');
+    }
+    /**
+     * @Route("/stages/{id}", name="prostages_stages_id ")
+     */
+    public function afficherStagesId(): Response
+    {
+        return $this->render('prostages/affichageStagesId.html.twig',[
+            'id'=> 4]);
+    }
+    
 }
