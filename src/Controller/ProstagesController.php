@@ -32,10 +32,10 @@ class ProstagesController extends AbstractController
     /**
      * @Route("/stages/{id}", name="prostages_stages_id ")
      */
-    public function afficherStagesId(): Response
+    public function afficherStagesId($id): Response
     {
         return $this->render('prostages/affichageStagesId.html.twig',[
-            'id'=> 4]);
+            'id'=> $id]);
     }
     
 }
