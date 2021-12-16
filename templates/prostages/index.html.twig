@@ -1,10 +1,18 @@
 {% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Bienvenue sur la page d'accueil de Prostages</h1>
+{% block TitreContenu %}
+<h1>Bienvenue sur la page d'accueil de Prostages</h1>
+{% endblock %}
+{% block contenu %}
+    
     <ul>
         <li>
-            <a href = "{{path('stages'.{3})}}"> Tuto sur ... </a>
+            <a href = "{{path('prostages_stages_id',{id:5})}}"> Tuto sur ... </a>
+        </li>
+        <li>
+            <a href = "{{path('prostages_stages_id',{id:50})}}"> Tuto sur ... </a>
+        </li>
+        <li>
+            <a href = "{{path('prostages_stages_id',{id:467})}}"> Tuto sur ... </a>
         </li>
     </ul>
 {% endblock %}

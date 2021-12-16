@@ -16,21 +16,21 @@ class ProstagesController extends AbstractController
         return $this->render('prostages/index.html.twig');
     }
     /**
-     * @Route("/entreprises", name="prostages_entreprises ")
+     * @Route("/entreprises", name="prostages_entreprises")
      */
     public function afficherEntreprises(): Response
     {
         return $this->render('prostages/affichageEntreprises.html.twig');
     }
     /**
-     * @Route("/formations", name="prostages_formations ")
+     * @Route("/formations", name="prostages_formations")
      */
     public function afficherFormations(): Response
     {
         return $this->render('prostages/affichageFormations.html.twig');
     }
     /**
-     * @Route("/stages/{id}", name="prostages_stages_id ")
+     * @Route("/stages/{id}", name="prostages_stages_id")
      */
     public function afficherStagesId($id): Response
     {
