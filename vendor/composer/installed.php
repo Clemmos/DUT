@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f52aac7af43799d180d64fbc7ff0669b6abc1faa',
+        'reference' => 'da40aec341e77cd822f9aa01fa69d2f78bcbc7a4',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f52aac7af43799d180d64fbc7ff0669b6abc1faa',
+            'reference' => 'da40aec341e77cd822f9aa01fa69d2f78bcbc7a4',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -215,7 +215,7 @@
             'install_path' => __DIR__ . '/../fzaninotto/faker',
             'aliases' => array(),
             'reference' => 'd0190b156bcca848d401fb80f31f504f37141c8d',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'laminas/laminas-code' => array(
             'pretty_version' => '4.4.3',
