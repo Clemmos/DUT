@@ -3,20 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Prostages{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- BLOC FEUILLES DE STYLE -->
         {% block stylesheets %}
+            <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
-        
+
+        <!-- BLOC TITRE -->
         {% block TitreContenu %}
         {% endblock %}
 
-        
+        <!-- BLOC CONTENU -->
         {% block contenu %}
         {% endblock %}
 
+        <!-- BLOC ASIDE -->
         {% block aside %}
-
         <a href="/"> Revenir à l'accueil </a> <br>
         <p> Trier les stages par: </p>
         <ul>
@@ -27,16 +32,15 @@
                     <a href = "{{path('prostages_entreprises')}}"> Entreprises</a>
                 </li>
         </ul>
-
         {% endblock %}
 
-        
+        <!-- BLOC PIED DE PAGE -->
         {% block footer %}
         {% endblock %}
 
+        <!-- BLOC JAVASCRIPT     -->
         {% block javascripts%}
-
+            <script src="{{asset('/js/bootstrap.min.js')}}"></script>
         {% endblock %}
-
     </body>
 </html>
