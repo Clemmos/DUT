@@ -7,5 +7,7 @@
 
 {% for stage in stages %}
     <a href="/stages/{{stage.getId()}}"> {{stage.getTitre()}}</a> <br> <br>
+{% else %}    
+    <p> Aucun stage proposé </p>
 {% endfor %}
 {% endblock %}

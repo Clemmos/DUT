@@ -34,11 +34,6 @@ class AppFixtures extends Fixture
 
             $manager->persist($entrepriseAleatoire);
 
-            //creation de formation
-            
-            //creation de la relation entre stage et formation
-            
-            //creation de la relation entre stage et entreprise
         }
         //creation des Formations
         $formationDUTInfo = new Formation();
@@ -59,7 +54,7 @@ class AppFixtures extends Fixture
         for($i = 0; $i < 20; $i++){
 
             $nbAleatoireEntreprise = $faker->numberBetween($min = 0, $max = 9);
-            $nbAleatoireFormation = $faker->numberBetween($min = 0, $max = 2);
+            $nbAleatoireFormation = $faker->numberBetween($min = 1, $max = 3);
 
             //creation d'un stage a partir de valeurs aléatoires
             $stageAleatoire = new Stage();
@@ -71,12 +66,25 @@ class AppFixtures extends Fixture
             //lier le stage à une entrepries aléatoire
             $stageAleatoire->setEntreprise($tabEntreprise[$nbAleatoireEntreprise]);
             $nbAleaDejaSorti = array();
-            //lier le stage à une formation aléatoire
-            for($i = 0; $i<$nbAleatoireFormation; $i++){
+
+            
+            //lier le stage à entre 1 et 3 formations aléatoires
+            $estDejaSorti = FALSE;
+            for($j = 0; $j<$nbAleatoireFormation; $j++){
+                //numero de la formation aleatoire
                 $nbAleatoireFormation = $faker->numberBetween($min = 0, $max = 2);
-                
-                for()
+
+                //si la formation n'a pas encore été ajouter on ajouter la formation au stage
+                foreach ($nbAleaDejaSorti as $nombre){
+                    if($nombre == $nbAleatoireFormation)
+                    {
+                        $estDejaSorti = TRUE;
+                    }
+                }
+                if( ! $estDejaSorti){
                     $stageAleatoire->addFormation($tabFormations[$nbAleatoireFormation]);
+                }
+                $estDejaSorti = FALSE;
                 array_push($nbAleaDejaSorti,$nbAleatoireFormation);
             }
 
