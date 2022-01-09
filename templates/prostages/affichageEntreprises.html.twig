@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block contenu %}
+
 {% for entreprise in listeEntreprises %}
     <a href="/entreprise/{{entreprise.getId()}}"> {{entreprise.getNom()}} </a> <br><br>
 {% else %}

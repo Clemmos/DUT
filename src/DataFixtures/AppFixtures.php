@@ -70,9 +70,15 @@ class AppFixtures extends Fixture
 
             //lier le stage à une entrepries aléatoire
             $stageAleatoire->setEntreprise($tabEntreprise[$nbAleatoireEntreprise]);
+            $nbAleaDejaSorti = array();
             //lier le stage à une formation aléatoire
-            $stageAleatoire->addFormation($tabFormations[$nbAleatoireFormation]);
-            
+            for($i = 0; $i<$nbAleatoireFormation; $i++){
+                $nbAleatoireFormation = $faker->numberBetween($min = 0, $max = 2);
+                
+                for()
+                    $stageAleatoire->addFormation($tabFormations[$nbAleatoireFormation]);
+                array_push($nbAleaDejaSorti,$nbAleatoireFormation);
+            }
 
             $manager->persist($stageAleatoire);
         }
