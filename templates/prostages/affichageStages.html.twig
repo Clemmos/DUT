@@ -1,5 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block TitreContenu %}
-<h1>Cette page affichera le descriptif du stage ayant pour identifiant {{id}}</h1>
+<h1>Détail du stage</h1>
 {% endblock %}
-
+{% block contenu %}
+    <p>Nom de l'entreprise: {{stage.getEntreprise().getNom()}}</p>
+    <p>Nom du stage: {{stage.getTitre()}}</p>
+    <p>Activité: {{stage.getDescriptionMission()}} </p>
+    <p>Description du stage: {{stage.getDescriptionMission()}}</p>
+    <p>Adresse de l'entreprise: {{stage.getEntreprise().getAdresse()}}</p>
+    <p>Email du contact: {{stage.getEmailContact()}}</p>
+    <p>Liste des formations associées: </p>
+    <ul>
+    {% for formation in formations %}
+        {% for formationDansStage in stage.getFormations() %}
+            {% if formation.getId() == formationDansStage.getId() %}
+                <p>{{formation.getNomLong()}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </ul>
+{% endblock %}

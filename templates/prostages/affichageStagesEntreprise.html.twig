@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block TitreContenu %}
+    <h1> Stages proposés par l'entreprise {{entreprise.getNom()}}</h1>
+{% endblock %}
+
+{% block contenu %}
+
+{% for stage in stages %}
+    <a href="/stages/{{stage.getId()}}"> {{stage.getTitre()}}</a> <br> <br>
+{% endfor %}
+{% endblock %}

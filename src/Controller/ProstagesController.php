@@ -25,16 +25,40 @@ class ProstagesController extends AbstractController
     public function afficherEntreprises(): Response
     {
         //pour la liste des entreprises qui proposent un stage
-        return $this->render('prostages/affichageEntreprises.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Entreprise::class);
+
+        $listeEntreprises = $repository->findAll(); 
+
+        return $this->render('prostages/affichageEntreprises.html.twig', [ 'listeEntreprises' => $listeEntreprises ]);
     }
-    
+     /**
+     * @Route("/entreprise/{id}", name="prostages_stages_entreprise")
+     */
+    public function afficherStagesEntreprise($id): Response
+    {
+        //pour la liste des stages d'une entreprise
+        $repository = $this->getDoctrine()->getRepository(Entreprise::class);
+        $entreprise = $repository->find($id);
+
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+        $stages = $repositoryStage->findBy(['Entreprise' => $entreprise]);
+        return $this->render('prostages/affichageStagesEntreprise.html.twig', 
+            [
+                'entreprise' => $entreprise,
+                'stages' => $stages
+            ]);
+    }
+
     /**
      * @Route("/formations", name="prostages_formations")
      */
     public function afficherFormations(): Response
     {
         //pour la listes des formations existantes pour l'IUT
-        return $this->render('prostages/affichageFormations.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Formation::class);
+
+        $listeFormations = $repository->findAll(); 
+        return $this->render('prostages/affichageFormations.html.twig', ['listeFormations' => $listeFormations ]);
     }
 
     /**
@@ -43,8 +67,19 @@ class ProstagesController extends AbstractController
     public function afficherStages($id): Response
     {
         //pour la description complete d'un stage
-        return $this->render('prostages/affichageStages.html.twig',[
-            'id'=> $id]);
+        $repository = $this->getDoctrine()->getRepository(Stage::class);
+        $stage = $repository->findOneBy(['id' => $id]);
+
+
+        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+        $formations = $repositoryFormation->findAll();
+        
+
+        return $this->render('prostages/affichageStages.html.twig',
+        [
+            'stage'=> $stage,
+            'formations' => $formations
+        ]);
     }
     /**
      * @Route("/stages", name="prostages_stages")
@@ -58,5 +93,5 @@ class ProstagesController extends AbstractController
 
         return $this->render('prostages/affichageListeStages.html.twig', ['listeStages' => $listeStages]);
     }
-    
+   
 }

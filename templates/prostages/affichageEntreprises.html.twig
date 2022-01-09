@@ -1,1 +1,13 @@
- <h1>Cette page affichera la liste des entreprises proposant un stage</h1>
+{% extends 'base.html.twig' %}
+{% block TitreContenu %}
+    <h1> Liste des Entreprise proposant un stage</h1>
+    <h2> Choisissez une entreprise pour afficher les stages qu'elle propose </h2>
+{% endblock %}
+
+{% block contenu %}
+{% for entreprise in listeEntreprises %}
+    <a href="/entreprise/{{entreprise.getId()}}"> {{entreprise.getNom()}} </a> <br><br>
+{% else %}
+    <p> Aucune entreprise </p>
+{% endfor %}
+{% endblock %}

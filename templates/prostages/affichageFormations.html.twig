@@ -1,1 +1,13 @@
- <h1>Cette page affichera la liste des formations de l'IUT</h1>
+ {% extends 'base.html.twig' %}
+{% block TitreContenu %}
+    <h1> Liste des Formations de l'IUT </h1>
+    <h2> Choisissez une formation pour afficher les stages associés </h2>
+{% endblock %}
+
+{% block contenu %}
+{% for formation in listeFormations %}
+    <a href="#"> {{formation.getNomLong()}} </a> <br><br>
+{% else %}
+    <p> Aucune formations </p>
+{% endfor %}
+{% endblock %}
