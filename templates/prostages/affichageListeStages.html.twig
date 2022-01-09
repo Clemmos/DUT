@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block TitreContenu %}
+    <h1> Tous les stages </h1>
+{% endblock %}
+
+{% block contenu %}
+    {% for stages in listeStages %}
+        <div class="conteneurStage">
+        nom du stage:
+        <a href="/stages/{{stages.id}}"> {{stages.titre}} <br></a>
+        nom de l'entreprise : {{stages.getEntreprise.nom}} <br> 
+        </a>
+        <br><br>
+        </div>
+    {% else %}
+        <p> Aucun stage n'est actuellement proposé, revenez plus tard. </p> 
+    {% endfor %}
+{% endblock %}

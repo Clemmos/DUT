@@ -7,18 +7,30 @@
         {% endblock %}
     </head>
     <body>
-        <h1> -----------------DESCRIPTIF-----------------</h1>
+        
         {% block TitreContenu %}
         {% endblock %}
 
-        <h1> -----------------CONTENU ET ASIDE-----------------</h1>
+        
         {% block contenu %}
         {% endblock %}
 
         {% block aside %}
+
+        <a href="/"> Revenir à l'accueil </a> <br>
+        <p> Trier les stages par: </p>
+        <ul>
+                <li>
+                    <a href = "{{path('prostages_formations')}}"> Formations </a>
+                </li>
+                <li>
+                    <a href = "{{path('prostages_entreprises')}}"> Entreprises</a>
+                </li>
+        </ul>
+
         {% endblock %}
 
-        <h1> -----------------FOOTER-----------------</h1>
+        
         {% block footer %}
         {% endblock %}
 
