@@ -1,0 +1,22 @@
+ {% extends 'base.html.twig' %}
+{% block TitreContenu %}
+    <h1> Liste des stages pour la Formation {{formation.getNomLong()}} </h1>
+{% endblock %}
+
+{% block contenu %}
+{% for stage in stages %}
+    {% for formationStage in stage.getFormations() %}
+        {% if formationStage.getId() == formation.getId() %}
+        <div class="conteneurStage">
+        nom du stage:
+        <a href="/stages/{{stage.id}}"> {{stage.titre}} <br></a>
+        nom de l'entreprise : {{stage.getEntreprise.nom}} <br> 
+        </a>
+        <br><br>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <p> Aucun stage </p>
+{% endfor %}
+{% endblock %}

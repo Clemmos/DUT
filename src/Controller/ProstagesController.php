@@ -60,7 +60,20 @@ class ProstagesController extends AbstractController
         $listeFormations = $repository->findAll(); 
         return $this->render('prostages/affichageFormations.html.twig', ['listeFormations' => $listeFormations ]);
     }
+    /**
+     * @Route("/formation/{id}", name="prostages_stages_formation")
+     */
+    public function afficherStagesFormation($id): Response
+    {
+        //pour la liste des stages pour une formation 
+        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+        $formation = $repositoryFormation->find($id);
 
+
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+        $stages = $repositoryStage->findAll(); 
+        return $this->render('prostages/affichageStagesFormation.html.twig', ['stages' => $stages , 'formation' => $formation]);
+    }
     /**
      * @Route("/stages/{id}", name="prostages_stages_id")
      */
