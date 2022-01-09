@@ -6,7 +6,7 @@
 
 {% block contenu %}
     {% for stages in listeStages %}
-        <div class="conteneurStage">
+        <div style ="border-bottom:solid grey 1px;">
         nom du stage:
         <a href="/stages/{{stages.id}}"> {{stages.titre}} <br></a>
         nom de l'entreprise : {{stages.getEntreprise.nom}} <br> 

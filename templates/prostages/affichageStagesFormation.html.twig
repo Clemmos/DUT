@@ -7,7 +7,7 @@
 {% for stage in stages %}
     {% for formationStage in stage.getFormations() %}
         {% if formationStage.getId() == formation.getId() %}
-        <div class="conteneurStage">
+        <div style ="border-bottom:solid grey 1px;">
         nom du stage:
         <a href="/stages/{{stage.id}}"> {{stage.titre}} <br></a>
         nom de l'entreprise : {{stage.getEntreprise.nom}} <br> 

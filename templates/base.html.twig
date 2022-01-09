@@ -11,32 +11,42 @@
         {% endblock %}
     </head>
     <body>
-
-        <!-- BLOC TITRE -->
-        {% block TitreContenu %}
-        {% endblock %}
-
-        <!-- BLOC CONTENU -->
-        {% block contenu %}
-        {% endblock %}
-
-        <!-- BLOC ASIDE -->
-        {% block aside %}
-        <a href="/"> Revenir à l'accueil </a> <br>
-        <p> Trier les stages par: </p>
-        <ul>
-                <li>
-                    <a href = "{{path('prostages_formations')}}"> Formations </a>
-                </li>
-                <li>
-                    <a href = "{{path('prostages_entreprises')}}"> Entreprises</a>
-                </li>
-        </ul>
-        {% endblock %}
-
-        <!-- BLOC PIED DE PAGE -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BLOC TITRE -->
+                    {% block TitreContenu %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8" style ="border-top:solid grey 1px;border-bottom:solid grey 1px;">
+                    <!-- BLOC CONTENU -->
+                    {% block contenu %}
+                    {% endblock %}
+                </div>
+                <div class="col-md-4" >
+                    <!-- BLOC ASIDE -->
+                    {% block aside %}
+                    <button onclick="window.location.href='/'"> Revenir à l'accueil </button> <br>
+                    <p> Trier les stages par: </p>
+                    <ul>
+                            <li>
+                                <a href = "{{path('prostages_formations')}}"> Formations </a>
+                            </li>
+                            <li>
+                                <a href = "{{path('prostages_entreprises')}}"> Entreprises</a>
+                            </li>
+                    </ul>
+                    {% endblock %}
+                </div>
+            </div>
+            <!-- BLOC PIED DE PAGE -->
         {% block footer %}
-        {% endblock %}
+        <p>Site réalisé avec les framework Symfony et Bootstrap.</p>
+        {% endblock %}  
+        </div>
+        
 
         <!-- BLOC JAVASCRIPT     -->
         {% block javascripts%}
@@ -44,3 +54,4 @@
         {% endblock %}
     </body>
 </html>
+
