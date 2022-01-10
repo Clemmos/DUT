@@ -3,9 +3,9 @@
 <h1> Bienvenue sur la page d'accueil de Prostages </h1>
 {% endblock %}
 {% block contenu %}
-    <ul>
-        <li>
-            <a href = "{{path('prostages_stages')}}"> Liste des stages </a>
-        </li>
-    </ul>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text"><a href = "{{path('prostages_stages')}}"> Liste des stages </a></p>
+        </div>
+    </div>
 {% endblock %}

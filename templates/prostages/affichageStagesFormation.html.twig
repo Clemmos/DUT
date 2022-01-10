@@ -4,9 +4,7 @@
 {% endblock %}
 
 {% block contenu %}
-{% for stage in stages %}
-    {% for formationStage in stage.getFormations() %}
-        {% if formationStage.getId() == formation.getId() %}
+    {% for stage in formation.stages %}
         <div style ="border-bottom:solid grey 1px;">
         nom du stage:
         <a href="/stages/{{stage.id}}"> {{stage.titre}} <br></a>
@@ -14,9 +12,7 @@
         </a>
         <br><br>
         </div>
-        {% endif %}
+    {% else %}
+        <p> Aucun stage </p>
     {% endfor %}
-{% else %}
-    <p> Aucun stage </p>
-{% endfor %}
 {% endblock %}

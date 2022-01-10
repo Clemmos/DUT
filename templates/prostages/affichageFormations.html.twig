@@ -5,9 +5,13 @@
 {% endblock %}
 
 {% block contenu %}
-{% for formation in listeFormations %}
-    <a href="/formation/{{formation.getId()}}"> {{formation.getNomLong()}} </a> <br><br>
-{% else %}
-    <p> Aucune formations </p>
-{% endfor %}
+    {# affichage de la liste des formations  #}
+    <ul class="list-group list-group-flush">
+    {% for formation in listeFormations %}
+
+        <li class="list-group-item"><a href="/formation/{{formation.getId()}}">  {{formation.getNomLong()}}  </a></li>
+    {% else %}
+        <p> Aucune formations </p>
+    {% endfor %}
+    </ul>
 {% endblock %}

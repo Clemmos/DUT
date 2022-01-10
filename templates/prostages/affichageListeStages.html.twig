@@ -5,15 +5,24 @@
 {% endblock %}
 
 {% block contenu %}
-    {% for stages in listeStages %}
-        <div style ="border-bottom:solid grey 1px;">
-        nom du stage:
-        <a href="/stages/{{stages.id}}"> {{stages.titre}} <br></a>
-        nom de l'entreprise : {{stages.getEntreprise.nom}} <br> 
-        </a>
-        <br><br>
-        </div>
+    {# affichage de tous les stages disponible #}
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Nom du stage</th>
+        <th scope="col">Nom de l'entreprise</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for stages in listeStages %}         
+        <tr>
+            <td><a href="/stages/{{stages.id}}">{{stages.titre}} </a></td>
+            <td>{{stages.getEntreprise.nom}}</td>
+        </tr>
+        
     {% else %}
         <p> Aucun stage n'est actuellement proposé, revenez plus tard. </p> 
     {% endfor %}
+     </tbody>
+    </table>
 {% endblock %}
