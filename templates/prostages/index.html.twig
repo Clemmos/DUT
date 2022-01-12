@@ -3,9 +3,25 @@
 <h1> Bienvenue sur la page d'accueil de Prostages </h1>
 {% endblock %}
 {% block contenu %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <p class="card-text"><a href = "{{path('prostages_stages')}}"> Liste des stages </a></p>
-        </div>
-    </div>
+    
+    {# affichage de tous les stages disponible #}
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Nom du stage</th>
+        <th scope="col">Nom de l'entreprise</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for stage in stages %}         
+        <tr>
+            <td><a href="/stages/{{stage.id}}">{{stage.titre}} </a></td>
+            <td>{{stage.getEntreprise.nom}}</td>
+        </tr>
+        
+    {% else %}
+        <p> Aucun stage n'est actuellement proposé, revenez plus tard. </p> 
+    {% endfor %}
+     </tbody>
+    </table>
 {% endblock %}

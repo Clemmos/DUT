@@ -17,7 +17,9 @@ class ProstagesController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('prostages/index.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Stage::class);
+        $stages = $repository->findAll();
+        return $this->render('prostages/index.html.twig',['stages' => $stages]);
     }
     /**
      * @Route("/entreprises", name="prostages_entreprises")
@@ -90,17 +92,6 @@ class ProstagesController extends AbstractController
             'stage'=> $stage
         ]);
     }
-    /**
-     * @Route("/stages", name="prostages_stages")
-     */
-    public function afficherListeStages(): Response
-    {
-        //pour la liste de tous les stages
-        $repository = $this->getDoctrine()->getRepository(Stage::class);
-        $listeStages = $repository->findAll();
-
-
-        return $this->render('prostages/affichageListeStages.html.twig', ['listeStages' => $listeStages]);
-    }
+   
    
 }

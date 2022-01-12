@@ -10,6 +10,7 @@
             <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
         {% endblock %}
     </head>
+    
     <body>
         <div class="container-fluid">
             <div class="row">
@@ -29,16 +30,19 @@
                     <!-- BLOC ASIDE -->
                     {% block aside %}
                     <a class="btn btn-primary" href="/" role="button">Revenir à l'accueil</a>
-                    <p> <u>Trier les stages par:</u> </p>
+                    <p> Trier les stages par: </p>
                     
                         <a href = "{{path('prostages_formations')}}" class="list-group-item list-group-item-action"> Formations </a>
                         <a href = "{{path('prostages_entreprises')}}" class="list-group-item list-group-item-action"> Entreprises</a>
+                
                     {% endblock %}
                 </div>
             </div>
+
             <!-- BLOC PIED DE PAGE -->
         {% block footer %}
         <p>Site réalisé avec les framework Symfony et Bootstrap.</p>
+        
         {% endblock %}  
         </div>
         
